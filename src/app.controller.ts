@@ -1,3 +1,6 @@
+// controller의 역할은 url을 가져오고 function을 리턴하는 것이다.
+// function은 app.service.ts에 정의한다.
+
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
@@ -15,6 +18,7 @@ export class AppController {
   // 예제
   @Get('/hello')
   sayHello(): string {
-    return 'Hello everyone';
+    // nestjs에서는 function이름과 appService의 function이름을 동일하게 해뒀지만 달라고 상관없다.
+    return this.appService.getHi();
   }
 }
