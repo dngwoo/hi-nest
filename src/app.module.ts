@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MoviesController } from './movies/movies.controller';
+import { MoviesService } from './movies/movies.service';
 
 // 이 함수는 데코레이터라고 부른다.
 // 데코레이터는 클래스에 함수기능을 추가할 수 있다.
@@ -8,6 +9,6 @@ import { MoviesController } from './movies/movies.controller';
   // 컨트롤러가 하는 일은 기본적으로 url을 가져오고 함수를 실행하는 것이다.
   // express로 치면 라우터같은 존재임.(controller + router)
   controllers: [MoviesController],
-  providers: [],
+  providers: [MoviesService],
 })
 export class AppModule {}
