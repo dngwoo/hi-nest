@@ -6,7 +6,6 @@ import {
   Param,
   Patch,
   Post,
-  Query,
 } from '@nestjs/common';
 import { Movie } from './entities/movie.entity';
 import { MoviesService } from './movies.service';
@@ -46,9 +45,6 @@ export class MoviesController {
   // patch method는 리소스의 일부부만 업데이트 해준다.
   @Patch(':id')
   patch(@Param('id') movieId, @Body() updateData) {
-    return {
-      updateMovie: movieId,
-      ...updateData,
-    };
+    return this.moviesService.update(movieId, updateData);
   }
 }
